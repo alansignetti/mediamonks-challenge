@@ -1,3 +1,20 @@
+// Cookies
+function setCookie(name, value) {
+  document.cookie = `${name}=${value}; path=/`;
+}
+
+function getCookie(name) {
+  const cookieName = name + "=";
+  const cookies = document.cookie.split("; ");
+  for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    if (cookie.indexOf(cookieName) === 0) {
+      return cookie.substring(cookieName.length);
+    }
+  }
+  return "";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Create an element for the ball and the shadow
   const ball = document.getElementById("ball");
@@ -16,24 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ball.style.backgroundColor = color;
     // Store the user's color preference in a cookie
     setCookie("ballColorPreference", color);
-  }
-
-  // Function to set a cookie with a specified name and value
-  function setCookie(name, value) {
-    document.cookie = `${name}=${value}; path=/`; // No se especifica la fecha de expiración para una cookie de sesión
-  }
-
-  // Function to get the value of a cookie by name
-  function getCookie(name) {
-    const cookieName = name + "=";
-    const cookies = document.cookie.split("; ");
-    for (let i = 0; i < cookies.length; i++) {
-      let cookie = cookies[i];
-      if (cookie.indexOf(cookieName) === 0) {
-        return cookie.substring(cookieName.length);
-      }
-    }
-    return "";
   }
 
   // Check if the user has a preference for a ball color stored in a cookie
@@ -58,10 +57,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const redBallViews = parseInt(getCookie("redBallViews")) || 0;
   const blueBallViews = parseInt(getCookie("blueBallViews")) || 0;
 
+  const colorBall = ball.style.backgroundColor;
+
+  // Buttons
+  const redButton = document.querySelector("#redButton");
+  const blueButton = document.querySelector("#blueButton");
+
+  // Update budges values
+  redButton.dataset.count = redBallViews.toString();
+  blueButton.dataset.count = blueBallViews.toString();
+
   // Update the view count
-  if (ball.style.backgroundColor === redColor) {
+  if (colorBall === redColor) {
     setCookie("redBallViews", redBallViews + 1);
-  } else if (ball.style.backgroundColor === blueColor) {
+  } else if (colorBall === blueColor) {
     setCookie("blueBallViews", blueBallViews + 1);
   }
 

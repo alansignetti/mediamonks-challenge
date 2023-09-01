@@ -3,6 +3,29 @@
   width: 300px;
   justify-content: space-between;
 }
+
+button:before {
+  content: attr(data-count);
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  display: block;
+  border-radius: 50%;
+  background: rgb(241, 248, 255);
+  border: 1px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  color: #000;
+  position: absolute;
+  top: -7px;
+  left: -7px;
+}
+
+button.badge-top-right:before {
+  left: auto;
+  right: -7px;
+}
+
 .button {
   border-radius: 8px;
   border-style: none;
@@ -31,11 +54,26 @@
   touch-action: manipulation;
 }
 
-.red {
-  background-color: red;
-}
 .blue {
-  background-color: blue;
+  background: linear-gradient(
+    to bottom,
+    rgb(37, 72, 188) 0%,
+    rgba(41, 70, 216, 1) 32%,
+    rgb(31, 69, 219) 42%,
+    rgb(166, 181, 235) 100%
+  );
+
+  /* background-color: red; */
+}
+.red {
+  /* background-color: blue; */
+  background: linear-gradient(
+    to bottom,
+    rgb(188, 37, 37) 0%,
+    rgb(229, 61, 61) 32%,
+    rgb(255, 75, 75) 42%,
+    rgb(215, 119, 119) 100%
+  );
 }
 .button:hover {
   opacity: 0.8;

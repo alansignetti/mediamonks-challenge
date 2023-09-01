@@ -4,18 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/button.css" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     <script src="main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediaMonk Challenge</title>
+    <title>MediaMonks Challenge</title>
   </head>
   <body>
+    <div class="button-container">
+      <button
+        id="redButton"
+        class="button red badge-top-right"
+        data-color="red"
+        data-count="5"
+      >
+        Red
+      </button>
+
+      <button
+        id="blueButton"
+        class="button blue badge-top-right"
+        data-color="blue"
+        data-count="5"
+      >
+        Blue
+      </button>
+    </div>
     <div class="ball-container">
       <div id="ball" class="ball"></div>
-    </div>
-
-    <div class="button-container">
-      <button class="button red" data-color="red">Red</button>
-      <button class="button blue" data-color="blue">Blue</button>
     </div>
   </body>
 </html>
