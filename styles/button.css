@@ -62,11 +62,8 @@ button.badge-top-right:before {
     rgb(31, 69, 219) 42%,
     rgb(166, 181, 235) 100%
   );
-
-  /* background-color: red; */
 }
 .red {
-  /* background-color: blue; */
   background: linear-gradient(
     to bottom,
     rgb(188, 37, 37) 0%,
